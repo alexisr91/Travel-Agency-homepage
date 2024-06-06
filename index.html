@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Travel jquery</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+
+
+
+	.container{
+		background-image: url('img/bg_body.jpg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		max-height: 1800px;
+	}
+
+	/* Menu */
+
+	nav.sticky{
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		background-color: black;
+		z-index: 2;
+		transition: 0.6s ease-in-out;
+		animation: 1.2s ease-in-out navdown;
+	}
+
+	@keyframes navdown{
+		from{transform: translateY(-200px)}
+		to{transform: translateY(0px);}
+	}
+
+	nav ul li a{
+		text-decoration: none;
+		color: white;
+		font-family: Bebas Neue;
+		font-size: 1.4em;
+	}
+
+	nav ul li a:hover{
+		color: darkslategrey;
+		transition: 0.4s ease-in-out;
+	}
+
+	/* slider */
+
+	/*Pourquoi  la doc Bootstrap me dit de mettre max-width dans l'attr alt ???? */
+
+
+
+	.slider .slide img{
+		max-width: 100%;
+	}
+
+
+	.slider-container{
+		width: 100%;
+		overflow: hidden; 
+	}
+
+	.slide{
+		float: left;
+	}
+
+	.sentence-1{
+		z-index: 1;
+		padding: 20px;
+		position: absolute;
+		top: 400px;
+		right: 886px;
+		font-size: 22px;
+	}	
+
+	.sentence-2{
+		color: white;
+		z-index: 1;
+		padding: 20px;
+		position: absolute;
+		top: 462px;
+		right: 857px;
+		font-size: 28px;
+	}	
+
+	.button-slider{
+		position: absolute;
+		z-index: 1;
+		font-size: 12px;
+		top: 680px;
+		right: 940px;
+	}
+
+
+
+
+
+	section span{
+		font-family: Bebas Neue;
+		font-size: 1.3em;
+	}
+
+
+	/* Gallerie d'img */
+
+	.marker{
+		position: relative;
+		top: 200px;
+		transform: scaleX(0.4);
+		transform: rotate(-90deg);
+	}
+
+	/* Tabs */
+
+	.onglets{
+		cursor: pointer;
+	}
+
+	
+	div #onglets .onglet{
+		transition: .4s ease-in-out;
+	}
+
+	.onglet:hover{
+		color: lightblue;
+	}
+
+	.onglet3:hover{
+		color: lightblue;
+	}
+
+	.contenus{
+		max-height: 500px;
+		max-width: 680px;
+		height: 450px;
+		border: 1px solid black;
+	}
+
+	.contenu{
+		display: none;
+	}
+
+/*  Tous les enfants de DIV vont etre affectés */
+	.contenu > div{
+		overflow: hidden; /* le float left autorise mais n'est pas compté donc l'element parent ne voit pas le mb*/
+	}
+
+
+
+	.contenu.active{
+		display: inline;
+	}
+
+	.contenus .contenu:nth-child(2){
+	 /* Les em sur bootstrap ?????? */
+		margin-top: 5.5em;
+	}
+
+	.contenus button{
+		width: 6.3em;
+		height: 1.8em;
+	}
+
+
+	/* Newsletter*/
+
+	.newsletter-container{
+		position: relative;
+		bottom: 28.2em;
+		max-height: 500px;
+		height: 450px;
+		width: 310px;
+		margin-right: 60px;
+		border: 1px solid black;
+	}
+
+	.newsletter-container h2{
+		font-family: Bebas Neue;
+	}
+
+	.newsletter-container #email{
+		background: url("img/envel.png") right no-repeat;
+		border-radius: 4px 4px 4px 4px;
+		height: 32px;
+	}
+
+	.newsletter-container ul{
+		position: relative;
+		top: 40px;
+	}
+
+	.newsletter-container ul li img{
+		margin-right: 8px;
+		margin-top: px;
+	}
+
+	/* BACKGROUND plage */
+
+	.plage{
+		max-height: 1165px;
+		height: 750px;
+		background: url("img/BACKGROUND.png") no-repeat;
+
+	}
+
+	.bg-plage{
+		position: relative;
+		bottom: 440px;
+	}
+
+	.plage h3{
+		position: relative;
+		left: 500px;
+		padding-top: 40px;
+		color: white;
+		font-family: Bebas Neue;
+		font-size: 3.4em;
+		z-index: 1;
+
+	}
+
+	.palmier{
+		position: relative;
+		bottom: 92px;
+	}
+
+	.montgolfiere{
+		position: relative;
+		bottom: 200px;
+		right: 50px;
+	}
+
+	.boat{
+		position: relative;
+		left: 600px;
+		bottom: 100px;
+	}
+
+	.ticket-plane{
+		position: relative;
+		left: 300px;
+		bottom: 20px;
+	}
+/* Footer */
+
+footer{
+	position: relative;
+	bottom: 50px;
+	background-color: #012239;
+	color: white;
+}
+
+footer ul li a{
+		text-decoration: none;
+		color: white;
+		font-family: Bebas Neue;
+		font-size: 1.4em;
+}
+</style>
+
+<!-- -->
+
+<body>
+  <main>
+	<div class="container position-relative"> <!-- Container qui display img background -->
+			<nav class="d-flex justify-content-center">
+				<ul class="d-flex flex-row align-items-center">
+					<li class="px-3 space-between"><a href="#">Home</a></li>
+					<li class="px-3 space-between"><a href="#">About</a></li>
+					<li class="px-3 space-between"><a href="#">Gallery</a></li>
+					<img src="img/logo.png" alt="logo" width="20%" class="mb-2 mt-2">
+					<li class="px-3 space-between"><a href="#">Tours</a></li>
+					<li class="px-3 space-between"><a href="#">Blog</a></li>
+					<li class="px-3 space-between"><a href="#">Contacts</a></li>
+				</ul>
+			</nav>	
+
+<section class="bg-white w-80 justify-content-center mx-auto p-4"> 
+
+	
+	<!-- SLIDER -->
+
+	<div class="container-slider w-100 mw-100">
+		<div class="slider">
+			<div class="slide">
+				<img src="img/slide0.jpg" alt="slide-image1" class="position-relative">
+			</div>
+
+			 <div class="slide">		
+				<img src="img/slide1.jpg" alt="slide-image2" class="position-relative">
+			</div>	
+
+			<div class="slide">	
+				<img src="img/slide2.jpg" alt="slide-image3" class="position-relative">
+			</div>	
+
+			<div class="slide">	
+				<img src="img/slide3.jpg" alt="slide-image4" class="position-relative">			
+			</div> 
+			
+				<span class="sentence-1 bg-white">There are plenty of places</span>
+				<span class="sentence-2 bg-primary">that are worth seeing</span>
+				<div class="button-to-slide"></div>
+			 <img src="img/prevnext.png" alt="button-slider" class="button-slider">
+			<!-- Problème de display au scroll avec les elements du slider quand je scrolle down amlgré le changement de display en sticky et d'element en div, p -->  
+		</div>
+	</div>
+	<span>TOP DESTINATIONS</span>
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<!-- Gallerie img -->
+<div class="d-flex justify-content-center">
+	<img src="img/big2.jpg" width="320px" height="220px" class=" img-gallerie-1 px-2 ml-6">
+	<img src="img/big3.jpg" width="320px" height="220px" class=" img-gallerie-2 px-2 ml-6">
+	<img src="img/big8.jpg" width="320px" height="220px" class=" img-gallerie-3 px-2 ml-6">
+
+	<a href="#"><img src="img/marker.png" alt="top" width="20px" height="20px" class="marker"></a>
+</div>	
+
+
+<!-- Tabs -->
+
+	<div class="container-onglet mt-4 mx-2">
+		<div id="onglets">
+			<ul class="onglets">
+				<li class="onglet d-inline-block py-8 border border-secondary p-2" id="tab1">LAST MINUTE</li>
+				<li class="onglet d-inline-block py-8 border border-secondary p-2" id="tab2">HOT DEALS</li>
+				<li class="onglet d-inline-block py-8 border border-secondary p-2 active"id="tab3">ALL-INCLUSIVE</li>
+			</ul>
+
+			<div class="contenus py-4 px-2">
+				<div class="contenu active tab1 mr-4"> 
+
+				<div>
+					<img src="img/page4_img5.jpg" alt="image-onglet" class="float-start mx-2">
+					<h6 class="mb-4 fst-italic">Lorem Ipsum dolor sit amet</h6>
+					<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. </p>
+					<br>
+					<p class="mb-4"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. </p>
+					<button class="float-end mr-12 p-2 bg-white rounded">details</button>
+				</div>
+
+					<div>
+							<img src="img/page4_img3.jpg" alt="image-onglet" width="167px" height="143px" class="relative float-start mx-2">
+							<h6 class="mb-2 fst-italic">Lorem Ipsum dolor sit amet</h6>
+							<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. </p>
+							<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. </p>
+							<button class="float-end mr-12 mt-4 p-2 bg-white m rounded">details</button>
+					</div>
+				</div>
+
+				<div class="tab2 contenu mr-4">
+					<div>
+							<img src="img/page3_img3.jpg" alt="image-onglet" width="167px" height="143px" class="relative float-start mx-2 mb-4">
+							<h6 class="mb-2 fst-italic">Lorem Ipsum dolor sit amet</h6>
+							<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. </p>
+							<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. </p>
+							<button class="float-end mr-12 mt-4 p-2 bg-white m rounded">details</button>
+					</div>
+
+
+					<div>
+							<img src="img/page3_img4.jpg" alt="image-onglet" width="167px" height="143px" class="relative float-start mx-2">
+							<h6 class="mb-2 fst-italic">Lorem Ipsum dolor sit amet</h6>
+							<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. </p>
+							<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. </p>
+							<button class="float-end mr-12 mt-4 p-2 bg-white m rounded">details</button>
+					</div>
+				</div>
+
+				<div class="contenu mr-4 tab3">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- NEWSLETTER -->
+
+
+	<div class="newsletter-container float-end">
+		<h2 class="title-newsletter text-center p-2 border-bottom border-dark mb-4">NEWSLETTER</h2>
+		<h3 class="text-center p-2 mb-4">Sign up to our newsletter</h3>
+		<div class="text-center pr-2"><input type="email" id="email" size="25" placeholder="email address" required></div>
+
+
+	<ul class="px-4">
+		<li class="lh-lg ml-4"><img src="img/marker.png">Fgo psu dr sit amek</li>
+		<li class="lh-lg ml-4"><img src="img/marker.png">Fgo psu dr sit amek</li>
+		<li class="lh-lg ml-4"><img src="img/marker.png">Fgo psu dr sit amek</li>
+		<li class="lh-lg"><img src="img/marker.png">Fgo psu dr sit amek</li>
+		<li class="lh-lg"><img src="img/marker.png">Fgo psu dr sit amek</li>
+		<li class="lh-lg"><img src="img/marker.png">Fgo psu dr sit amek</li>
+		<li class="lh-lg"><img src="img/marker.png">Fgo psu dr sit amek</li>
+	</ul>
+	</div>
+
+
+
+</section>
+
+<!-- Background image plage -->
+<section class="plage w-100 mh-25"> 
+	<h3 class="">SUMMER IS COMING !</h3>
+	<img src="img/PALMIER.png" class="palmier" alt="image-plage0">
+	<img src="img/flash0aiActifs_1.png" class="boat" alt="image-plage1">
+	<img src="img/flash0aiActifs_4.png" class="ticket-plane" alt="image-plage2">
+	<img src="img/flash0aiActifs_5.png" class="montgolfiere" alt="image-plage3">
+
+</section>
+
+<!-- FOOTER -->
+<footer class="w-100 h-25 p-4"> 
+
+<div class="row">
+	<ul class="col p-4">
+		<li class="lh-sm"><a href="#">FAQ PAGE</a></li>
+		<li class=""><a href="#">PEOPLE SAY</a></li>
+	</ul>
+
+	<ul class="col p-4">
+		<li class="lh-sm"><a href="#">USEFUL LINKS</a></li>
+		<li><a href="#">PARTNERS</a></li>
+	</ul>
+
+	<ul class="col p-4">
+		<li class="lh-sm"><a href="#">INSURANCE</a></li>
+		<li><a href="#">FAMILY TRAVEL</a></li>
+	</ul>
+
+	<ul class="col mt-2">
+		<h6>CONTACT US :</h6>
+		<li class="lh-sm"><a href="#">TEl : 0398293784</a></li>
+		<li class=""><a href="#">info@agencedevoyage@gmail.com</a></li>
+	</ul>
+</div>	
+</section>
+</footer>
+
+
+	<div class="d-flex justify-content-center">
+		<img src="img/socials.png" alt="socialmedias" class="mx-auto">
+	</div>
+		<div class="d-flex justify-content-center p-2 text-white mt-2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div>
+
+</div>	<!-- Fin container 	-->
+
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+	<!-- JQuery slim est une version sans l'AJAX -->
+	<script>
+		
+
+
+  // SLIDER 2.0
+
+	(function($){
+		$.fn.slider = function(args){
+			var defaults = { // Pour les users 
+				speed: 600,
+				items: 'slide',
+				duration: 2000
+			}
+			$(this.wrap("<div class='slider-container'></div>"))
+			var opts = $.extend(defaults, args)
+			var itemCount = parseInt($('.'+opts.items).length)
+			var $this = $(this)
+			$this.css('width',100*itemCount+'%') //On agrandit le contenant des différents slides en fonction du nombre de slides
+			console.log(itemCount)
+			$('.'+opts.items).css('width',$('.slider-container').width())
+			var widthSlide = $('.slider-container').width()
+			var play = function(){
+				$this.animate({
+					marginLeft: -widthSlide
+				},opts.speed,function(){
+					$this.css('margin-left',0).find('.'+opts.items+':last').after($this.find('.'+opts.items+':first'))
+				})
+			}
+			setInterval(play,opts.duration)
+			return $(this)
+		}
+	})(jQuery)
+
+
+
+
+// SCROLL 
+		$(document).ready(function(){
+			$('.slider').slider({ // Appel de la fonction du slider
+				speed: 800,
+				duration: 4000
+			})
+
+			$(window).on('scroll',function(){
+				var scrollPosition= $('html').scrollTop()
+				if(scrollPosition >780){ // Saut d'image dès que je passe ce thredshold pas moyen de supprimer ça 
+					$('nav').addClass('sticky')
+				}else{
+					$('nav').removeClass('sticky')
+				}
+			});
+		});
+
+
+
+// TABS 
+
+		$('.onglet').on('click',function(){
+			var id = $(this).attr('id')
+			$('.contenu, .onglet').removeClass('active')
+			$(this).addClass('active')
+			$('.' + id).addClass('active')
+		})
+	
+
+
+	</script>
+</main>
+</body>
+</html>
