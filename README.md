@@ -16,8 +16,7 @@ Travel agency made during my coding courses in local
 
 ## Tech Stack
 
-**Client side:** jQuery, Bootstrap,
-
+**Client side:** jQuery, Bootstrap
 
 
 ## FAQ
